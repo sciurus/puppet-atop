@@ -1,0 +1,4 @@
+ A seperate module for configuring the system monitoring program atop that works around some bugs in the EPEL package.
+
+https://bugzilla.redhat.com/buglist.cgi?component=atop&product=Fedora
+https://bugzilla.redhat.com/buglist.cgi?component=atop&product=Fedora%20EPEL
