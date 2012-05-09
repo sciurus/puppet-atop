@@ -19,7 +19,7 @@ class atop {
   # add new setting to configure log retention
   file { '/etc/sysconfig/atop':
     ensure => present,
-    source => 'puppet://puppet.apidb.org/atop/sysconfig';
+    source => 'puppet:///modules/atop/sysconfig';
   }
 
   # https://bugzilla.redhat.com/show_bug.cgi?id=609124
@@ -27,13 +27,13 @@ class atop {
   file { '/usr/bin/atopd':
     ensure => present,
     mode   => '0755',
-    source => 'puppet://puppet.apidb.org/atop/atopd';
+    source => 'puppet:///modules/atop/atopd';
   }
 
   # https://bugzilla.redhat.com/show_bug.cgi?id=445174
   file { '/etc/cron.d/atop':
     ensure => present,
-    source => 'puppet://puppet.apidb.org/atop/cron';
+    source => 'puppet:///modules/atop/cron';
   }
 
   # https://bugzilla.redhat.com/show_bug.cgi?id=445174
