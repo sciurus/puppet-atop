@@ -16,12 +16,14 @@ class atop {
     require => Package['atop'],
   }
 
+  # add new setting to configure log retention
   file { '/etc/sysconfig/atop':
     ensure => present,
     source => 'puppet://puppet.apidb.org/atop/sysconfig';
   }
 
   # https://bugzilla.redhat.com/show_bug.cgi?id=609124
+  # also modified to delete old logs
   file { '/usr/bin/atopd':
     ensure => present,
     mode   => '0755',
@@ -40,7 +42,8 @@ class atop {
   }
 
   # https://bugzilla.redhat.com/show_bug.cgi?id=542598
-  # script in /etc/cron.d takes care of rotation
+  # /usr/bin/atopd (called via init script which is called via cron)
+  # takes care of daily rotation and expiration of logs
   file { '/etc/logrotate.d/atop':
     ensure => absent;
   }
