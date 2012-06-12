@@ -17,7 +17,7 @@
 [ -z $ROTATE ] &&  ROTATE=14
 
 rotate_logs() {
-    find $LOGPATH -mtime +$ROTATE -delete
+    find $LOGPATH -mindepth 1 -mtime +$ROTATE -delete
 }
 
 start_atop() {
